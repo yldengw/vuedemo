@@ -3,13 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui';
+import axios from 'axios';
 
 Vue.config.productionTip = false
-
-/* eslint-disable no-new */
+Vue.use(ElementUI);
+Vue.prototype.$axios = axios;
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
+    router,
+    render: h => h(App)
+}).$mount('#app');
+/* eslint-disable no-new */
+
